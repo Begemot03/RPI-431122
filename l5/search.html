@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поисковые формы</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 5px 15px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Поисковые формы</h1>
+
+    <!-- 
+        action - URL отправки данных
+        method - способ отправки данных GET
+        target - _blank - открыть в новой вкладке
+     -->
+    <form action="http://www.yandex.ru/yandsearch" method="get" target="_blank">
+        <label>Поиск на Яндексе:</label>
+        <input type="text" name="text">
+        <button type="submit">Искать</button>
+    </form>
+
+    <form action="https://nova.rambler.ru/search" method="get" target="_blank">
+        <label>Поиск на Рамблере:</label>
+        <input id="rs" type="text" name="text">
+        <input id="rhs" type="hidden" name="query">
+        <button type="submit">Искать</button>
+    </form>
+
+    <form action="https://www.google.com/search" method="get" target="_blank">
+        <label>Поиск в Гугл:</label>
+        <input type="text" name="q">
+        <button type="submit">Искать</button>
+    </form>
+
+    <form action="https://www.filesearch.ru/search/" method="get" target="_blank">
+        <label>Поиск на FileSearch:</label>
+        <input type="text" name="query">
+        <button type="submit">Искать</button>
+    </form>
+
+    <script>
+        let ramblerS = document.querySelector("#rs");
+        let ramblerHS = document.querySelector("#rhs");
+
+        ramblerS.addEventListener("change", e => {
+            console.log(e.target.value)
+            ramblerHS.value = e.target.value;
+        });
+
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const formData = new FormData(form);
+                const params = new URLSearchParams(formData).toString();
+                const url = form.getAttribute('action') + '?' + params;
+                window.open(url);
+            });
+        });
+    </script>
+</body>
+</html>

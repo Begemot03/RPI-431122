@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа 5</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/index.html">POST</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/get.html">GET</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <!-- 
+            action - URL куда отправятся данные 
+            method - метод отправки данных, сейчас GET (отправка на сервер)
+         -->
+        <form class="row g-3 needs-validation mx-auto mt-3" style="max-width: 700px;" novalidate action="localhost://127.0.0.1:5500" method="GET">
+            <!-- Поля "Фамилия" -->
+            <div class="col-md-4">
+                <!-- 
+                    required - обязательное поле для сохранения
+                 -->
+                <label for="surname" class="form-label">Фамилия</label>
+                <input type="text" name="surname" class="form-control" id="surname" required>
+                <div class="invalid-feedback">
+                    Заполните поле!
+                </div>
+            </div>
+             <!-- Поля "Имя" -->
+             <div class="col-md-4">
+                <label for="name" class="form-label">Имя</label>
+                <input type="text" name="name" class="form-control" id="name" required>
+                <div class="invalid-feedback">
+                    Заполните поле!
+                </div>
+            </div>
+             <!-- Поля "Отчество" -->
+             <div class="col-md-4">
+                <label for="patronymic" class="form-label">Отчество</label>
+                <input type="text" name="patronymic" class="form-control" id="patronymic" required>
+                <div class="invalid-feedback">
+                    Заполните поле!
+                </div>
+            </div>
+             <!-- Поля "E-mail" -->
+             <div class="col-12">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" name="email" class="form-control" id="email" required>
+                <div class="invalid-feedback">
+                    Заполните поле корректно!
+                </div>
+            </div>
+            <!-- Поля "Страна" -->
+            <div class="col-12">
+                <label for="country" class="form-label">Страна</label>
+                <select class="form-select" id="country" name="country" required>
+                    <option selected disabled value="">Выберите...</option>
+                    <option>Австралия</option>
+                    <option>Россия</option>
+                    <option>Бурунди</option>
+                    <option>Гвинея</option>
+                    <option>Исландия</option>
+                    <option>Республика Конго</option>
+                    <option>Ливан</option>
+                    <option>Мексика</option>
+                    <option>Намибия</option>
+                    <option>Объединённые Арабские Эмираты</option>
+                </select>
+                <div class="invalid-feedback">
+                    Выберите страну!
+                </div>
+            </div>
+             <!-- Поля "Город" -->
+             <div class="col-md-6">
+                <label class="form-label">Город</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="cyty" id="city1">
+                    <label class="form-check-label" for="city1">
+                        Алдан
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="cyty" id="city2" checked>
+                    <label class="form-check-label" for="city2">
+                        Алапаевск
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="cyty" id="city3" checked>
+                    <label class="form-check-label" for="city3">
+                        Асино
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="cyty" id="city4" checked>
+                    <label class="form-check-label" for="city4">
+                        Ахтубинск
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="cyty" id="city5" checked>
+                    <label class="form-check-label" for="city5">
+                        Баксан
+                    </label>
+                </div>
+            </div>
+             <!-- Поля "Язык" -->
+             <div class="col-md-6">
+                <label class="form-label">Язык</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="lang1">
+                    <label class="form-check-label" for="lang1">
+                        Русский
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="lang2">
+                    <label class="form-check-label" for="lang2">
+                        Английский
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="lang3">
+                    <label class="form-check-label" for="lang3">
+                        Татарский
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="lang4">
+                    <label class="form-check-label" for="lang4">
+                        Чувашский
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="lang5">
+                    <label class="form-check-label" for="lang5">
+                        Немецкий
+                    </label>
+                </div>
+            </div>
+            <!-- Поля "Профессия" -->
+            <div class="col-12">
+                <label for="profession" class="form-label">Профессия</label>
+                <select class="form-select" id="profession" name="profession" multiple size="5" required>
+                    <option>Садовник</option>
+                    <option>Санитар</option>
+                    <option>Свешник</option>
+                    <option>Священник</option>
+                    <option>Сенатор</option>
+                    <option>Сенокосец</option>
+                    <option>Скупщик</option>
+                    <option>Служащий в банях</option>
+                    <option>Солдат</option>
+                    <option>Справщик</option>
+                </select>
+                <div class="invalid-feedback">
+                    Выберите профессию!
+                </div>
+            </div>
+            <!-- Поля "Пароль" -->
+            <div class="col-12">
+                <label for="pass" class="form-label">Пароль</label>
+                <input type="password" class="form-control" name="pass" id="pass" minlength="8" maxlength="18" required>
+                <div class="invalid-feedback">
+                    Минимальная длина пароля 8 символов, максимальная - 18 символов!
+                </div>
+            </div>
+            <!-- Поля "Дополнительная информация" -->
+            <div class="col-12">
+                <label for="info" class="form-label">Дополнительная информация</label>
+                <textarea type="password" class="form-control" name="info" id="info"></textarea>
+            </div>
+            <!-- Служебная информация -->
+            <input type="hidden" name="student" value="Your_name">
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">Отправить форму</button>
+                <button class="btn btn-outline-success btn-light" type="reset">Очистить форму</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Скрипты -->
+    <script src="index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
