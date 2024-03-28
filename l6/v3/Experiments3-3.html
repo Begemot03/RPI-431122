@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 3 Вариант 3</title>
+</head>
+<body>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <button id="hB">Показать</button>
+    <button id="oB">Скрыть все блоки</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("p").fadeOut(100);
+      })
+
+      let o = 0;
+    
+      const hB = $("#hB");
+      const oB = $("#oB");
+
+      hB.click(function() {
+        o = 0;
+        show()
+      })
+
+      function show() {
+        if(o == 1) return;
+        $("p:odd").fadeIn(2000, () => { 
+          $("p:even").fadeIn(2000, () => {
+            $("p:odd").fadeOut(2000, () => {
+              $("p:even").fadeOut(2000, () => {
+                show();
+              })
+            })
+          });
+        });
+      }
+
+      oB.click(function() {
+        $("img").fadeOut(3000);
+        o = 1;
+      })
+    </script>
+</body>
+</html>

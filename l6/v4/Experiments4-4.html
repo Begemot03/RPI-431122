@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 4 Вариант 4</title>
+</head>
+<style>
+  .container {
+    text-align: center;
+  }
+
+  .images {
+      margin-top: 20px;
+  }
+
+  .images img {
+      width: 150px;
+      height: 150px;
+      margin: 5px;
+  }
+
+</style>
+<body>
+  <div class="container">
+    <button id="slideshowBtn">Start Slideshow</button>
+    <div class="images">
+        <img src="https://via.placeholder.com/30" alt="Image 1">
+        <img src="https://via.placeholder.com/30" alt="Image 2">
+        <img src="https://via.placeholder.com/30" alt="Image 3">
+        <img src="https://via.placeholder.com/30" alt="Image 4">
+        <img src="https://via.placeholder.com/30" alt="Image 5">
+        <img src="https://via.placeholder.com/30" alt="Image 6">
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $('#slideshowBtn').click(function() {
+        $('.images img:odd').each(function(index) {
+            $(this).slideUp('slow').delay(500).slideDown('slow');
+        });
+    });
+    
+  </script>
+</body>
+</html>

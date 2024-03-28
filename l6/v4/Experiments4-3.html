@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Задание 4 Вариант 3</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    p {
+        margin-top: 20px;
+    }
+
+    .odd {
+        margin-left: 40px;
+    }
+</style>
+</head>
+<body>
+
+<button id="btn">Нажать</button>
+<p>Параграф 1</p>
+<p class="odd">Параграф 2</p>
+<p>Параграф 3</p>
+<p class="odd">Параграф 4</p>
+<p>Параграф 5</p>
+<p class="odd">Параграф 6</p>
+
+<script>
+    $(document).ready(function(){
+        $("#btn").click(function(){
+            $("p:odd").each(function(){
+                let text = $(this).text();
+                $(this).next().text(text);
+                $(this).removeClass('odd');
+                $(this).next().addClass('odd');
+            });
+        });
+    });
+</script>
+</body>
+</html>

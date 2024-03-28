@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 4 Вариант 1</title>
+    <style>
+      img {
+          cursor: pointer;
+      }
+    </style>
+    </head>
+    <body>
+    
+    <button id="moveParagraphsButton">Переместить</button>
+    <div id="container">
+        <p style="position: relative;">Параграф 1</p>
+        <img style="position: relative;" src="https://via.placeholder.com/30" class="moveImage">
+        <p style="position: relative;">Параграф 2</p>
+        <img style="position: relative;" src="https://via.placeholder.com/30" class="moveImage">
+        <p style="position: relative;" id="paragraph3">Параграф 3</p>
+        <img style="position: relative;" src="https://via.placeholder.com/30" class="moveImage">
+        <p style="position: relative;">Параграф 4</p>
+        <img style="position: relative;" src="https://via.placeholder.com/30" class="moveImage">
+        <p style="position: relative;" id="paragraph5">Параграф 5</p>
+        <img style="position: relative;" src="https://via.placeholder.com/30" class="moveImage">
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#moveParagraphsButton').on('click', function() {
+                $('#paragraph3, #paragraph5').each(function() {
+                    $(this).animate({left: '-=100'}, 500);
+                });
+            });
+    
+            $('.moveImage').on('click', function() {
+                $(this).prev('p').animate({top: '+=30'}, 500);
+            });
+        });
+    </script>
+  </body>
+</html>

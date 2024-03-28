@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 3 Вариант 4</title>
+</head>
+<body>
+    <div style="display: flex; align-items: center;">
+      <div id="div1" style="background-color: #348934; width: 40px; height: 40px;">1</div>
+      <div id="div2" style="background-color: #830234; width: 40px; height: 40px;">2</div>
+      <div id="div3" style="background-color: #91AAC8; width: 40px; height: 40px;">3</div>
+      <div id="div4" style="background-color: #F8F30F; width: 40px; height: 40px;">4</div>
+      <div id="div5" style="background-color: #F838D2; width: 40px; height: 40px;">5</div>
+    </div>
+  
+    <button id="hB">Показать</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("div > div").animate({
+          opacity: 0,
+        }, 0);
+      })
+
+      const $d1 = $("#div1");
+      const $d2 = $("#div2");
+      const $d3 = $("#div3");
+      const $d4 = $("#div4");
+      const $d5 = $("#div5");
+    
+      const hB = $("#hB");
+
+      hB.click(function() {
+        show();
+      });
+
+      function hide()
+      {
+        $d1.delay(0).animate({
+          opacity: 0,
+        }, 1000);
+        $d2.delay(350).animate({
+          opacity: 0,
+        }, 1000);
+        $d3.delay(500).animate({
+          opacity: 0,
+        }, 1000);
+        $d4.delay(650).animate({
+          opacity: 0,
+        }, 1000);
+        $d5.delay(1000).animate({
+          opacity: 0,
+        }, 1000, () => show());
+      }
+
+      function show()
+      {
+        $d1.delay(0).animate({
+          opacity: 1,
+        }, 1000);
+        $d2.delay(350).animate({
+          opacity: 1,
+        }, 1000);
+        $d3.delay(500).animate({
+          opacity: 1,
+        }, 1000);
+        $d4.delay(650).animate({
+          opacity: 1,
+        }, 1000);
+        $d5.delay(1000).animate({
+          opacity: 1,
+        }, 1000, () => hide());
+      }
+    </script>
+</body>
+</html>

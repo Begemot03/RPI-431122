@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 2 Вариант 2</title>
+</head>
+<body>
+    <h1 style="text-align:center;">Нажми дважды, чтобы я исчез</h1>
+    <h2 style="text-align:center;">Нажми дважды, чтобы появился h1</h2>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("h2").hide();
+      })
+    
+      $("h1").on("dblclick", function() {
+        $("h1").toggle();
+        $("h2").toggle();
+      })
+
+      $("h2").on("dblclick", function() {
+        $("h1").toggle();
+        $("h2").toggle();
+      })
+    </script>
+</body>
+</html>

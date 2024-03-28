@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 1 Вариант 3</title>
+</head>
+<body>
+    <a style="display: block;" href="#">есть href</a>
+    <a style="display: block;" href="#">есть href</a>
+    <a style="display: block;">нет href</a>  
+
+
+    <button id="hButton">Скрыть</button>
+    <button id="oButton">Показать</button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $("#hButton").click(function() {
+            $('a[href="#"]').hide();
+        });
+
+        $("#oButton").click(function() {
+            $("a").show();
+        });
+    </script>
+</body>
+</html>

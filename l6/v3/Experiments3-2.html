@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 3 Вариант 2</title>
+</head>
+<body>
+    <div id="div1">1</div>
+    <div id="div2">2</div>
+    <div id="div3">3</div>
+    <div id="div4">4</div>
+    <div id="div5">5</div>
+    <button id="hB">Показать случайный блок от 1-5</button>
+    <button id="oB">Скрыть все блоки</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("div").fadeOut(100);
+      })
+    
+      const hB = $("#hB");
+      const oB = $("#oB");
+
+      hB.click(function() {
+        let rn = Math.floor(Math.random() * 5 + 1);
+        console.log(rn);
+
+        let bn = `#div${rn}`;
+
+        $(bn).fadeIn(3000);
+      })
+
+      oB.click(function() {
+        $("div").fadeOut(3000);
+      })
+    </script>
+</body>
+</html>
