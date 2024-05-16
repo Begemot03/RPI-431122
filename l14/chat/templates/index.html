@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чат</title>
+    <style>
+        body {
+            font-family: Impact, Charcoal, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #bdbdbd; 
+            color: #333;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .chatbox {
+            width: 600px;
+            height: 800px;
+            border: 2px solid #ccc;
+            background-color: #f0f0f0;
+            overflow-y: scroll;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 15px;
+            word-wrap: break-word;
+            background-color: #e0e0e0;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-message {
+            background-color: #4caf50;
+            color: white;
+            align-self: flex-end;
+        }
+
+        .server-message {
+            background-color: grey;
+            color: white;
+            align-self: flex-start;
+        }
+
+        .loader {
+            color: #333;
+            font-family: Impact, Charcoal, sans-serif;
+            font-weight: bold;
+            font-size: 24px;
+            opacity: 0.8;
+        }
+
+        input.messageinput {
+            padding: 8px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #f0f0f0;
+            color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        button.sendbutton {
+            max-width: 180px;
+            padding: 8px 16px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+        }
+
+        button.sendbutton:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="chatbox"></div>
+    <div class="group">
+        <input class="messageinput" type="text">
+        <button class="sendbutton">Отправить сообщение</button>
+    </div>
+
+    <script>
+        const chatbox = document.querySelector(".chatbox");
+        const messageinput = document.querySelector(".messageinput");
+        const sendbutton = document.querySelector(".sendbutton");
+        const loader = document.createElement("span");
+        
+        loader.classList.add("loader")
+
+
+        sendbutton.addEventListener("click", async () => {
+            const userMsg = messageinput.value.trim();
+            if (!userMsg) return;
+
+            const userMsgElement = document.createElement("div");
+            userMsgElement.textContent = userMsg;
+            userMsgElement.classList.add("message", "user-message");
+            chatbox.appendChild(userMsgElement);
+
+            messageinput.value = '';
+
+            chatbox.appendChild(loader);
+
+            try {
+                const response = await fetch(`http://127.0.0.1:5000/answer?q=${userMsg}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+
+                chatbox.removeChild(loader);
+
+                const serverMsgElement = document.createElement("div");
+                serverMsgElement.textContent = data.msg;
+                serverMsgElement.classList.add("message", "server-message");
+                chatbox.appendChild(serverMsgElement);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        });
+    </script>
+</body>
+</html>
