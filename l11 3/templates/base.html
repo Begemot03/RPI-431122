@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_UA&apikey=a96a7c12-b4c8-4a3f-b953-3d649ba33ddd" type="text/javascript"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>FlightAware</title>
+</head>
+<body>
+    {% include "components/navbar.html" %}
+
+    {% block content %}{% endblock %}
+    
+    <div id="myMap" style="width: 100%; height: 1000px; justify-content: center;"></div>
+
+    {% include "components/footer.html" %}
+<!-- СКРИПТ КАРТЫ -->
+    <script>
+        ymaps.ready(init);
+        function init(){     
+            var myMap = new ymaps.Map ('myMap', {
+                center: [56.507521, 50.021268],
+                zoom: 12
+            });
+            /*СОЗДАЕМ ЭКЗЕМПЛЯР КЛАССА Placemark*/
+            var myPlacemark = new ymaps.Placemark([56.507521, 50.021268], { 
+                iconContent: '', //текст на иконке
+                balloonContent: 'Топ офис' /*текст появляющийся после нажатия*/
+            }, {
+                preset: 'twirl#blueStretchyIcon' //тип иконки
+            });
+            
+            /*ДОБАВЛЯЕМ СОЗДАННУЮ КНОПКУ НА НАШУ КАРТУ*/
+            myMap.geoObjects.add(myPlacemark);
+        }
+    </script>
+
+    <script src="/static/index.js"></script>
+</body>
+</html>

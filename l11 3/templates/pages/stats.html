@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="auth p-20">
+    <div class="container">
+        <h2 class="font-light font-400">Список статей</h2>
+        <ul class="list-posts">
+            {% for p in posts %}
+            <li>
+                <p class="font-light font-400"><a href="{{ url_for('showPost', alias=p.url)}}">{{p.title}}</a></p>
+                <p class="font-light font-200">{{ p.text[:50] | striptags }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

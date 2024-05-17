@@ -1,0 +1,122 @@
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: #333; /* Цвет фона темной темы */
+	color: #fff; /* Цвет текста */
+}
+
+.clear {
+	clear: both;
+}
+
+.content {
+	margin: 10px;
+}
+
+.text_error {
+	color: #FF4040;
+}
+
+.wnd_dlg_back {
+	z-index: 9999;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: rgba(64, 65, 69, 0.5);
+	padding: 10px;
+	border-radius: 20px;
+}
+
+.wnd_dlg_back.login_wnd {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 345px;
+	height: 220px;
+	margin: -110px 0 0 -173px;
+	background: rgba(64, 65, 69, 0.2);
+}
+
+div.login {
+	width: 300px;
+	height: 175px;
+	padding: 20px;
+	color: #c39000;
+	background: #041B40; /* Изменили фон на темный синий */
+	border: 2px solid #d5d8b2;
+	border-radius: 20px;
+}
+
+div.login p a {
+	color: #fff; /* Изменили цвет ссылок */
+}
+
+div.login .title {
+	text-align: center;
+	color: #fff; /* Изменили цвет заголовка */
+	font-size: 24px;
+	margin-bottom: 40px;
+}
+
+.login_input {
+	font-size: 16px;
+	width: 100%;
+	background: #fff; /* Изменили фон инпутов */
+	color: #041B40; /* Изменили цвет текста */
+}
+
+.login_button {
+	color: #fff; /* Изменили цвет текста кнопки */
+	background: #041B40; /* Изменили цвет фона кнопки */
+	margin-top: 10px;
+}
+
+.flash.success {
+	border: 1px solid #21DB56;
+	background: #041B40; /* Изменили цвет фона уведомления успеха */
+}
+
+.flash.error {
+	border: 1px solid #FF4343;
+	background: #5A1C1C; /* Изменили цвет фона уведомления об ошибке */
+}
+
+ul.mainmenu {
+	list-style: none;
+	background: #041B40; /* Изменили цвет фона меню */
+	height: 40px;
+	margin: 0;
+	padding: 0;
+	color: #fff; /* Изменили цвет текста */
+	font-size: 20px;
+	overflow: hidden;
+}
+
+ul.mainmenu li {
+	float: left;
+	margin: 8px 40px 0 50px;
+}
+
+ul.mainmenu li.last { float: right; }
+
+ul.mainmenu li a {
+	color: #fff; /* Изменили цвет ссылок меню */
+}
+
+ul.mainmenu li a:hover {
+	color: #999; /* Изменили цвет при наведении на ссылку */
+}
+
+ul.list-posts .title {
+	background: #041B40; /* Изменили цвет фона заголовков */
+	border: 1px solid #041B40; /* Изменили цвет рамки заголовков */
+}
+
+ul.list-posts .annonce {
+	background: #041B40; /* Изменили цвет фона текста */
+	color: #fff; /* Изменили цвет текста */
+}
+
+/* Дополнительные стили также могут быть обновлены в соответствии с вашими предпочтениями. */

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="auth p-20">
+    {% for cat, msg in get_flashed_messages(True) %}
+        <div class="flash {{cat}}">{{msg}}</div>
+    {% endfor %}s
+    <div class="container">
+        <h2 class="font-light font-400">Вход</h2>
+        <form method="post">
+            <div class="form-group">
+                <label for="inputEmail">Email address</label>
+                <input type="email" id="inputEmail" name="email" placeholder="email" required>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">Password</label>
+                <input type="password" id="inputPassword" name="password" placeholder="password" required>
+            </div>
+            <button type="submit">Войти</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
