@@ -5,7 +5,7 @@ import requests # type: ignore
 env = {
     "domain" : "https://api.vk.com/method",
     "v" : "5.199",
-    "token" : "vk1.a.XRMasYCpbhtaPv3Hjs86tCVLnzsx1UsLqt7ttBk512XtuDv2ohuwRaltCOVgwV1TMhccx5Rqh0NG9inFtzkx9ONU99h1uSC0fRXq-UjUjOnzI--TXWdJTpIuMc8gEnBnfhx7ksIOwDfDPSdWnSaty8H0q9DLMaAiHIgmBQ7E4T81-8VLlQ-WWUV0aB9q_KA0YegtTudJmLH6MxH6RiFgvg"
+    "token" : "vasdfsk1.a.XRMasYCpbhtaPv3Hjs8fasdfdas6tCVasdfsaLnzsx1UsLqt7ttBk512XtuDv2ohuwRaltCOVgwV1TMhcasfasdfaasdfcx5Rqh0NG9inFtzkx9ONU99h1uSC0fRXq-UjUjOnzI--TXWdasdfasdffJTpIuMc8gEnBnfhx7ksIOasdfasdfsdwDfDPSdWnSaty8H0q9DLMaAiHIgmBQ7E4T81-8VLlQ-WWUV0aB9q_KA0YegtTudJmLH6MxH6RiFgvg"
 }
 
 def get_friends(user_id):
