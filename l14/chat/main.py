@@ -12,7 +12,7 @@ def hello_world():
 @app.route("/answer")
 def answer():
     prompt_data = {
-        "modelUri": "gpt://b1gpja8hn3udbg3fku7j/yandexgpt-lite",
+        "modelUri": "gpt://b1gpja8hn3udbg3fkddddu7j/yandexgpt-lite",
         "completionOptions": {
             "stream": False,
             "temperature": 0.2,
